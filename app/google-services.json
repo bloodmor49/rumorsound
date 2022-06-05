@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "604897090314",
+    "project_id": "rumorsound-54f63",
+    "storage_bucket": "rumorsound-54f63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604897090314:android:94a6b59484dc49a1a0b8f3",
+        "android_client_info": {
+          "package_name": "com.example.rumorsound"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604897090314-euc512ouplr1pg424im5p1ccf2487nua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMhwvw-81dgmNBh4ulEXMWD1r6FZPwO0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604897090314-euc512ouplr1pg424im5p1ccf2487nua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
