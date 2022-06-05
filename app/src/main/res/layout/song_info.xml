@@ -3,18 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/cardview_dark_background"
+    android:layout_margin="10dp">
 
     <ImageView
         android:id="@+id/ivItemImage"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:padding="10dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:src="@drawable/cup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvPrimary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -29,6 +34,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSecondary"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="100 Songs"

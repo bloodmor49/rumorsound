@@ -5,7 +5,6 @@
     <string name="song_name">Название песни:</string>
     <string name="song_address">Адрес песни:</string>
     <string name="song_id">Id песни:</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

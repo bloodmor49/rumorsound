@@ -35,7 +35,7 @@ class MusicNotificationManager(
             .setChannelDescriptionResourceId(R.string.song_name)
             .setNotificationListener(notificationListener)
             .setMediaDescriptionAdapter(
-                DescriptionNotificationAdapter(mediaController, newSongCallback))
+                DescriptionNotificationAdapter(context, mediaController, newSongCallback ))
             .build()
             .apply {
                 setSmallIcon(R.drawable.logo_okabe)

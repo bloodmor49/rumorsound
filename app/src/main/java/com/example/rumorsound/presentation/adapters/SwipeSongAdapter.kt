@@ -30,12 +30,12 @@ class SwipeSongAdapter : RecyclerView.Adapter<SwipeSongAdapter.SwipeSongViewHold
 
     class SwipeSongViewHolder(val binding: SwipeInfoBinding) : RecyclerView.ViewHolder(binding.root)
 
-    val differ = AsyncListDiffer(this, diffCallback)
+    private val differ = AsyncListDiffer(this, diffCallback)
 
     override fun onBindViewHolder(holder: SwipeSongViewHolder, position: Int) {
         val song = listOfSongs[position]
         with(holder.binding) {
-            val text = "${song.title} - ${song.subtitle}"
+            val text = song.title
             tvPrimary.text = text
             root.setOnClickListener {
                 onItemClickListener?.let { click -> click(song) }

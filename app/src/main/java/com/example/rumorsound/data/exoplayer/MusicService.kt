@@ -13,7 +13,6 @@ import com.example.rumorsound.data.exoplayer.notifications.MusicNotificationMana
 import com.example.rumorsound.data.exoplayer.callbacks.MusicPlaybackPreparer
 import com.example.rumorsound.data.exoplayer.callbacks.MusicPlayerEventListener
 import com.example.rumorsound.data.exoplayer.notifications.MusicPlayerNotificationListener
-import com.example.rumorsound.data.remote.FirebaseMusicSource
 import com.example.rumorsound.other.Constants.MEDIA_ROOT_ID
 import com.example.rumorsound.other.Constants.NETWORK_ERROR
 import com.example.rumorsound.other.Constants.SERVICE_TAG

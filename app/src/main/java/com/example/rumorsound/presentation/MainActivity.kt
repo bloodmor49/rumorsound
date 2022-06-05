@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.RequestManager
 import com.example.rumorsound.R
 import com.example.rumorsound.data.exoplayer.isPlaying
 import com.example.rumorsound.data.exoplayer.toSong
@@ -26,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-//    @Inject
-//    lateinit var glide: RequestManager
+    @Inject
+    lateinit var glide: RequestManager
 
     private val mainViewModel: MainViewModel by viewModels()
 
@@ -109,9 +110,10 @@ class MainActivity : AppCompatActivity() {
                     Status.SUCCESS -> {
                         result.data?.let { listOfSongs ->
                             swipeSongAdapter.listOfSongs = listOfSongs
-//                            if (listOfSongs.isNotEmpty()) {
-//                                //#TODO Загрузка картинки песни.
-//                            }
+                            if (listOfSongs.isNotEmpty()) {
+                                glide.load((currentPlayingSong ?: listOfSongs[0]).imageUrl)
+                                    .into(binding.ivCurSongImage)
+                            }
                             switchViewPagerToCurrentSong(currentPlayingSong ?: return@observe)
                         }
                     }
@@ -124,7 +126,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.currentPlayingSong.observe(this) {
             if (it == null) return@observe
             currentPlayingSong = it.toSong()
-            //#TODO Загрузка картинки песни.
+            glide.load(currentPlayingSong?.imageUrl).into(binding.ivCurSongImage)
             switchViewPagerToCurrentSong(currentPlayingSong ?: return@observe)
         }
 

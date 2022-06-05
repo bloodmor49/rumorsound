@@ -8,6 +8,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvPrimary"
         android:layout_width="0dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Title"

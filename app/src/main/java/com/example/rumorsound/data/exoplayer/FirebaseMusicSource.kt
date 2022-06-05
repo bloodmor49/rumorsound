@@ -1,4 +1,4 @@
-package com.example.rumorsound.data.remote
+package com.example.rumorsound.data.exoplayer
 
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaBrowserCompat.MediaItem.FLAG_PLAYABLE
@@ -7,7 +7,9 @@ import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.MediaMetadataCompat.*
 import android.util.Log
 import androidx.core.net.toUri
-import com.example.rumorsound.data.remote.State.*
+import com.example.rumorsound.other.State.*
+import com.example.rumorsound.data.remote.MusicDatabase
+import com.example.rumorsound.other.State
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.source.ConcatenatingMediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -36,12 +38,15 @@ class FirebaseMusicSource @Inject constructor(
         Log.d("MusicLoad", "GETSONGFROMMUSICDB: $songsListFromFB")
         songsList = songsListFromFB.map {
             Builder()
+                .putString(METADATA_KEY_ARTIST, it.subtitle)
                 .putString(METADATA_KEY_MEDIA_ID, it.mediaId.toString())
-                .putString(METADATA_KEY_MEDIA_URI, it.url)
                 .putString(METADATA_KEY_TITLE, it.title)
-                .putString(METADATA_KEY_ALBUM,it.subtitle)
-                .putString(METADATA_KEY_DISPLAY_SUBTITLE, it.subtitle)
                 .putString(METADATA_KEY_DISPLAY_TITLE, it.title)
+                .putString(METADATA_KEY_DISPLAY_ICON_URI, it.imageUrl)
+                .putString(METADATA_KEY_MEDIA_URI, it.url)
+                .putString(METADATA_KEY_ALBUM_ART_URI, it.imageUrl)
+                .putString(METADATA_KEY_DISPLAY_SUBTITLE, it.subtitle)
+                .putString(METADATA_KEY_DISPLAY_DESCRIPTION, it.subtitle)
                 .build()
         }
         state = STATE_INITIALIZED
@@ -65,6 +70,7 @@ class FirebaseMusicSource @Inject constructor(
             .setTitle(it.description.title)
             .setSubtitle(it.description.subtitle)
             .setMediaId(it.description.mediaId)
+            .setIconUri(it.description.iconUri)
             .build()
         MediaBrowserCompat.MediaItem(description, FLAG_PLAYABLE)
     }.toMutableList()

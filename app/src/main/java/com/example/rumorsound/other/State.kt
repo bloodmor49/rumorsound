@@ -1,4 +1,4 @@
-package com.example.rumorsound.data.remote
+package com.example.rumorsound.other
 
 /** Состояния при песен при работе с Firebase */
 enum class State {

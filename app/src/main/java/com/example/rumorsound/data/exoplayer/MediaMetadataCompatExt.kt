@@ -7,6 +7,7 @@ fun MediaMetadataCompat.toSong(): Song? {
     return description?.let {
         Song(
             mediaId = it.mediaId?.toInt() ?: Song.UNDEFINED_ID,
+            imageUrl = it.iconUri.toString(),
             title = it.title.toString(),
             url = it.mediaUri.toString(),
             subtitle = it.subtitle.toString()

@@ -9,6 +9,7 @@ import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.RequestManager
 import com.example.rumorsound.data.exoplayer.isPlaying
 import com.example.rumorsound.data.exoplayer.toSong
 import com.example.rumorsound.databinding.FragmentSongBinding
@@ -19,12 +20,13 @@ import com.example.rumorsound.presentation.viewmodels.SongViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SongFragment : Fragment() {
 
-    //    @Inject
-    //    lateinit var glide: RequestManager
+    @Inject
+    lateinit var glide: RequestManager
 
     private lateinit var mainViewModel: MainViewModel
     private val songViewModel: SongViewModel by viewModels()
@@ -72,7 +74,7 @@ class SongFragment : Fragment() {
         }
         viewBinding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if(fromUser) {
+                if (fromUser) {
                     setCurrentPlayerTimeToTextView(progress.toLong())
                 }
             }
@@ -93,7 +95,7 @@ class SongFragment : Fragment() {
     private fun updateTitleAndSongImage(song: Song) {
         val title = song.title
         viewBinding.tvSongName.text = title
-        //#TODO: Добавить картинку
+        glide.load(song.imageUrl).into(viewBinding.ivSongImage)
     }
 
     private fun subscribeToObservers() {

@@ -44,6 +44,8 @@ class MainViewModel @Inject constructor(
                             mediaId = it.mediaId?.toInt() ?: 0,
                             title = it.description.title.toString(),
                             url = it.description.mediaUri.toString(),
+                            subtitle = it.description.subtitle.toString(),
+                            imageUrl = it.description.iconUri.toString()
                         )
                     }
                     _mediaItems.postValue(Resource.success(items))

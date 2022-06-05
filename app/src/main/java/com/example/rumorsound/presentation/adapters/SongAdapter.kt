@@ -5,10 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.RequestManager
 import com.example.rumorsound.databinding.SongInfoBinding
 import com.example.rumorsound.domain.entities.Song
+import javax.inject.Inject
 
-open class SongAdapter : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
+class SongAdapter @Inject constructor(
+    private val glide: RequestManager
+) : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
 
     private var onItemClickListener: ((Song) -> Unit)? = null
 
@@ -39,7 +43,7 @@ open class SongAdapter : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
         with(holder.binding) {
             tvPrimary.text = song.title
             tvSecondary.text = song.subtitle
-//            glide.load(song.imageUrl).into(ivItemImage)
+            glide.load(song.imageUrl).into(ivItemImage)
             root.setOnClickListener {
                 onItemClickListener?.let { click -> click(song) }
             }

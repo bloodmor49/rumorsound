@@ -41,7 +41,7 @@
         android:id="@+id/vpSong"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:background="@color/teal_200"
+        android:background="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivPlayPause"
         app:layout_constraintStart_toEndOf="@+id/ivCurSongImage" />
@@ -50,8 +50,8 @@
         android:id="@+id/ivPlayPause"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:background="@color/purple_200"
         android:src="@drawable/cup"
+        android:background="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

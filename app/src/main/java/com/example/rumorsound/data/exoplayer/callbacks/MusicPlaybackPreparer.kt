@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.ResultReceiver
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.PlaybackStateCompat
-import com.example.rumorsound.data.remote.FirebaseMusicSource
+import com.example.rumorsound.data.exoplayer.FirebaseMusicSource
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
 

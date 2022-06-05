@@ -5,11 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rumorsound.databinding.FragmentHomeBinding
+import com.example.rumorsound.domain.entities.Song
 import com.example.rumorsound.other.Status
 import com.example.rumorsound.presentation.adapters.SongAdapter
 import com.example.rumorsound.presentation.viewmodels.MainViewModel
@@ -40,21 +42,25 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
+
         setUpMainViewModel()
+        setUpRecyclerView()
         subscribeToObservers()
+        setUpListeners()
 
     }
 
-    private fun setUpMainViewModel() {
-        mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
-
+    private fun setUpListeners() {
         songAdapter.setItemClickListener {
             mainViewModel.playOrToggleSong(it)
         }
     }
 
-    private fun setupRecyclerView() = viewBinding.rvAllSongs.apply {
+    private fun setUpMainViewModel() {
+        mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
+    }
+
+    private fun setUpRecyclerView() = viewBinding.rvAllSongs.apply {
         adapter = songAdapter
         layoutManager = LinearLayoutManager(requireContext())
     }

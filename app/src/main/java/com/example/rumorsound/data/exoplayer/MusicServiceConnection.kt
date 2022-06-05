@@ -2,8 +2,6 @@ package com.example.rumorsound.data.exoplayer
 
 import android.content.ComponentName
 import android.content.Context
-import android.media.browse.MediaBrowser
-import android.media.session.MediaController
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaMetadataCompat
